@@ -13,9 +13,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductFunctions", "ProductFunctions\ProductFunctions.csproj", "{080102BA-5E2B-41FF-A648-D37C9511DF50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductFunctions.Tests", "ProductFunctions.Tests\ProductFunctions.Tests.csproj", "{59BD0D75-ADC6-4117-83F2-6B48CE4D5722}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{080102BA-5E2B-41FF-A648-D37C9511DF50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080102BA-5E2B-41FF-A648-D37C9511DF50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080102BA-5E2B-41FF-A648-D37C9511DF50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080102BA-5E2B-41FF-A648-D37C9511DF50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59BD0D75-ADC6-4117-83F2-6B48CE4D5722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BD0D75-ADC6-4117-83F2-6B48CE4D5722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BD0D75-ADC6-4117-83F2-6B48CE4D5722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BD0D75-ADC6-4117-83F2-6B48CE4D5722}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{080102BA-5E2B-41FF-A648-D37C9511DF50} = {89A414C4-D545-43CB-906D-A32371D0F60B}
+		{59BD0D75-ADC6-4117-83F2-6B48CE4D5722} = {6F5FE4F4-9AD9-4E70-B86F-F02E7A988216}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AB3EB36-5F44-49DD-9C7E-3A3AF08B67CF}
