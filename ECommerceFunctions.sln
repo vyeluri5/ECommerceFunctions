@@ -3,35 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductFunctions", "ProductFunctions\ProductFunctions.csproj", "{AD22606E-C2EB-47AF-8383-CA39FEEBD698}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89A414C4-D545-43CB-906D-A32371D0F60B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6F5FE4F4-9AD9-4E70-B86F-F02E7A988216}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductFunctions.Tests", "ProductFunctions.Tests\ProductFunctions.Tests.csproj", "{C34BCF7B-F48A-42EB-A1F5-BBAFC0D4B003}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA5B8530-16C7-4E4F-9634-4AFE81AB3C84}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AD22606E-C2EB-47AF-8383-CA39FEEBD698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD22606E-C2EB-47AF-8383-CA39FEEBD698}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD22606E-C2EB-47AF-8383-CA39FEEBD698}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD22606E-C2EB-47AF-8383-CA39FEEBD698}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C34BCF7B-F48A-42EB-A1F5-BBAFC0D4B003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C34BCF7B-F48A-42EB-A1F5-BBAFC0D4B003}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C34BCF7B-F48A-42EB-A1F5-BBAFC0D4B003}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C34BCF7B-F48A-42EB-A1F5-BBAFC0D4B003}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{AD22606E-C2EB-47AF-8383-CA39FEEBD698} = {89A414C4-D545-43CB-906D-A32371D0F60B}
-		{C34BCF7B-F48A-42EB-A1F5-BBAFC0D4B003} = {6F5FE4F4-9AD9-4E70-B86F-F02E7A988216}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AB3EB36-5F44-49DD-9C7E-3A3AF08B67CF}
