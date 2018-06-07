@@ -2,6 +2,8 @@
 
 This repository is developed using Azure serverless functions for ECommerce websites backend functioanlity.
 
+Azure CosmosDB Table API has been setup in Azure cloud. Instructions can be found _[here](https://docs.microsoft.com/en-us/azure/cosmos-db/serverless-computing-database)_.
+
 Current _API_ calls
 
 **GET** http://localhost:7071/api/product/{category}/{rowkey}
