@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EcommFunctions.Functions.Interfaces;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.WindowsAzure.Storage.Table;
 using Ninject;
 
 namespace EcommerceFunctions.Dependencies
@@ -23,10 +24,12 @@ namespace EcommerceFunctions.Dependencies
             kernel = new StandardKernel(new IoCModule());
         }
 
-        public TFunction Create<TFunction>(TraceWriter log) 
+        public TFunction Create<TFunction>(TraceWriter log, CloudTable cloudTable) 
             where TFunction : IEcommFunction
         {
-            var function = kernel.Get<TFunction>();
+            var _cloudTable = new Ninject.Parameters.ConstructorArgument("_cloudTable", cloudTable);
+
+            var function = kernel.Get<TFunction>(_cloudTable);
             function.Log = log;
             return function;
         }

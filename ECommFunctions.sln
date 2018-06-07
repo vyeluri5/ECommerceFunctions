@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommFunctions.Common", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommFunctions.Models", "src\EcommFunctions.Models\EcommFunctions.Models.csproj", "{E72DA37F-E74E-41B0-B3D4-5767142BEFC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommFunctions.Functions", "EcommFunctions.Functions\EcommFunctions.Functions.csproj", "{03466EA4-AFA2-46C9-95F7-916F16358DE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommFunctions.Functions", "src\EcommFunctions.Functions\EcommFunctions.Functions.csproj", "{03466EA4-AFA2-46C9-95F7-916F16358DE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

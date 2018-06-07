@@ -21,7 +21,8 @@ namespace EcommFunctions.Common
         /// <param name="table">The sample table name</param>
         /// <param name="entity">The entity to insert or merge</param>
         /// <returns>A Task object</returns>
-        public static async Task<ProductEntity> InsertOrMergeEntityAsync(CloudTable table, ProductEntity entity)
+        public static async Task<object> InsertOrMergeEntityAsync<TEntity>(CloudTable table, TEntity entity)
+            where TEntity : TableEntity
         {
             if (entity == null)
             {
@@ -46,5 +47,32 @@ namespace EcommFunctions.Common
                 throw;
             }
         }
+
+        /// <summary>
+        /// Demonstrate the most efficient storage query - the point query - where both partition key and row key are specified.
+        /// </summary>
+        /// <param name="table">Sample table name</param>
+        /// <param name="partitionKey">Partition key - i.e., last name</param>
+        /// <param name="rowKey">Row key - i.e., first name</param>
+        /// <returns>A Task object</returns>
+        public static async Task<TEntity> RetrieveEntityUsingPointQueryAsync<TEntity>(CloudTable table, string partitionKey, string rowKey)
+            where TEntity : TableEntity
+        {
+            try
+            {
+                TableOperation retrieveOperation = TableOperation.Retrieve<TEntity>(partitionKey, rowKey);
+                TableResult result = await table.ExecuteAsync(retrieveOperation);
+                TEntity customer = result.Result as TEntity;
+
+                return customer;
+            }
+            catch (StorageException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+                throw;
+            }
+        }
+
     }
 }

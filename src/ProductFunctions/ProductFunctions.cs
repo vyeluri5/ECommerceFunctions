@@ -2,14 +2,18 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Threading.Tasks;
 using EcommerceFunctions.Dependencies;
+using EcommFunctions.Common;
 using EcommFunctions.Functions.Interfaces;
 using EcommFunctions.Functions.Types;
 using EcommFunctions.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.WindowsAzure.Storage.Table;
+using Newtonsoft.Json;
 
 namespace ProductFunctions
 {
@@ -18,37 +22,33 @@ namespace ProductFunctions
         public static IEcommFunctionFactory factoryInstance = new ECommFunctionFactory();
 
         [FunctionName("GetProduct")]
-        public static  async Task<HttpResponseMessage> GetProduct([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "api/product/{id}")]HttpRequestMessage req,  string id, TraceWriter log)
+        public static  async Task<HttpResponseMessage> GetProduct([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "api/product/{category}/{id}")]HttpRequestMessage req,  string category, string id, TraceWriter log)
         {
             string guid = new Guid().ToString();
 
-            var res = await factoryInstance.Create<IProductFunction>(log)
-                    .InvokeAsync(req, Environment.GetEnvironmentVariable("AzureTable"))
+            CloudTable table = await AzureConnect.CreateTableAsync("ECommCollection", Environment.GetEnvironmentVariable("AzureTable"));
+
+            var res = await factoryInstance.Create<IProductFunction>(log, table)
+                    .GetProductAsync(category, id)
                     .ConfigureAwait(false);
                 
 
-
-
-            
-            //log.Info("C# HTTP trigger function processed a request.");
-
-            //// parse query parameter
-            //string name = req.GetQueryNameValuePairs()
-            //    .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-            //    .Value;
-
-            //if (name == null)
-            //{
-            //    // Get request body
-            //    dynamic data = await req.Content.ReadAsAsync<object>();
-            //    name = data?.name;
-            //}
-
-            return req.CreateResponse(HttpStatusCode.OK, "Hello " + res);
-
-            //return name == null
-            //    ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-            //    : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+            return req.CreateResponse(HttpStatusCode.OK, res, JsonMediaTypeFormatter.DefaultMediaType);
         }
+
+        [FunctionName("CreateProduct")]
+        public static async Task<HttpResponseMessage> CreateProduct([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "api/product")]HttpRequestMessage req, TraceWriter log)
+        {
+            string guid = new Guid().ToString();
+
+            CloudTable table = await AzureConnect.CreateTableAsync("ECommCollection", Environment.GetEnvironmentVariable("AzureTable"));
+
+            var res = await factoryInstance.Create<IProductFunction>(log, table)
+                    .CreateProductAsync(req, Environment.GetEnvironmentVariable("AzureTable"))
+                    .ConfigureAwait(false);
+
+            return req.CreateResponse(HttpStatusCode.OK, res, JsonMediaTypeFormatter.DefaultMediaType);
+        }
+
     }
 }
