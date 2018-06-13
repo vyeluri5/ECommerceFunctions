@@ -7,8 +7,8 @@
     <ProjectGuid>{EEA50FFC-7E33-4FA5-AA27-247007AF3B74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EcommerceFunctions.Dependencies</RootNamespace>
-    <AssemblyName>EcommerceFunctions.Dependencies</AssemblyName>
+    <RootNamespace>EcommFunctions.Dependencies</RootNamespace>
+    <AssemblyName>EcommFunctions.Dependencies</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

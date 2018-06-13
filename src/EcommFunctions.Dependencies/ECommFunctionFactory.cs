@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EcommFunctions.Dependencies.Interfaces;
 using EcommFunctions.Functions.Interfaces;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.WindowsAzure.Storage.Table;
 using Ninject;
 
-namespace EcommerceFunctions.Dependencies
+namespace EcommFunctions.Dependencies
 {
     public class ECommFunctionFactory : IEcommFunctionFactory
     {

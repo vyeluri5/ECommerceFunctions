@@ -6,7 +6,7 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.11" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EcommerceFunctions.Dependencies\EcommFunctions.Dependencies.csproj" />
+    <ProjectReference Include="..\EcommFunctions.Dependencies\EcommFunctions.Dependencies.csproj" />
     <ProjectReference Include="..\EcommFunctions.Models\EcommFunctions.Models.csproj" />
   </ItemGroup>
   <ItemGroup>
