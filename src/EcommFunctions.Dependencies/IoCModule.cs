@@ -1,4 +1,5 @@
-﻿using EcommFunctions.Functions.Types;
+﻿using EcommFunctions.Functions.Interfaces;
+using EcommFunctions.Functions.Types;
 using Ninject.Modules;
 
 namespace EcommFunctions.Dependencies

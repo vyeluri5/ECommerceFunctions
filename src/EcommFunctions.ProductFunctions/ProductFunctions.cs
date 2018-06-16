@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EcommFunctions.Common;
 using EcommFunctions.Dependencies;
 using EcommFunctions.Dependencies.Interfaces;
+using EcommFunctions.Functions.Interfaces;
 using EcommFunctions.Functions.Types;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;

@@ -146,7 +146,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="ECommFunctionFactory.cs" />
     <Compile Include="Interfaces\IEcommFunctionFactory.cs" />
     <Compile Include="IoCModule.cs" />

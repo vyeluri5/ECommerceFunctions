@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using EcommFunctions.Common;
+using EcommFunctions.Functions.Interfaces;
 using EcommFunctions.Models;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.WindowsAzure.Storage.Table;
