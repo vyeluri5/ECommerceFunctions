@@ -1,9 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EcommFunctions.Common
@@ -23,15 +20,15 @@ namespace EcommFunctions.Common
             {
                 storageAccount = CloudStorageAccount.Parse(storageConnectionString);
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the application.");
-                throw ex;
+                throw;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the sample.");
-                throw ex;
+                throw;
             }
 
             return storageAccount;
@@ -57,11 +54,11 @@ namespace EcommFunctions.Common
             {
                 if (await table.CreateIfNotExistsAsync())
                 {
-                    Console.WriteLine("Created Table named: {0}", tableName);
+                    Console.WriteLine($"Created Table named: {tableName}");
                 }
                 else
                 {
-                    Console.WriteLine("Table {0} already exists", tableName);
+                    Console.WriteLine($"Table {tableName} already exists");
                 }
             }
             catch (StorageException)

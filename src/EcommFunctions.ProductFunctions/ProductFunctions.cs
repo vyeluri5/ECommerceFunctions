@@ -10,13 +10,12 @@ using EcommFunctions.Functions.Types;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
-using Microsoft.WindowsAzure.Storage.Table;
 
-namespace ProductFunctions
+namespace EcommFunctions.ProductFunctions
 {
     public class ProductFunctions
     {
-        public static IEcommFunctionFactory factoryInstance = new ECommFunctionFactory();
+        public static IEcommFunctionFactory FactoryInstance = new ECommFunctionFactory();
 
         public int Test()
         {
@@ -26,11 +25,10 @@ namespace ProductFunctions
         [FunctionName("GetProduct")]
         public static async Task<HttpResponseMessage> GetProduct([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "api/product/{category}/{id}")]HttpRequestMessage req, string category, string id, TraceWriter log)
         {
-            string guid = new Guid().ToString();
 
-            CloudTable table = await AzureConnect.CreateTableAsync("ECommCollection", Environment.GetEnvironmentVariable("AzureTable"));
+            var table = await AzureConnect.CreateTableAsync("ECommCollection", Environment.GetEnvironmentVariable("AzureTable"));
 
-            var res = await factoryInstance.Create<IProductFunction>(log, table)
+            var res = await FactoryInstance.Create<IProductFunction>(log, table)
                     .GetProductAsync(category, id)
                     .ConfigureAwait(false);
 
@@ -41,11 +39,9 @@ namespace ProductFunctions
         [FunctionName("CreateProduct")]
         public static async Task<HttpResponseMessage> CreateProduct([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "api/product")]HttpRequestMessage req, TraceWriter log)
         {
-            string guid = new Guid().ToString();
+            var table = await AzureConnect.CreateTableAsync("ECommCollection", Environment.GetEnvironmentVariable("AzureTable"));
 
-            CloudTable table = await AzureConnect.CreateTableAsync("ECommCollection", Environment.GetEnvironmentVariable("AzureTable"));
-
-            var res = await factoryInstance.Create<IProductFunction>(log, table)
+            var res = await FactoryInstance.Create<IProductFunction>(log, table)
                     .CreateProductAsync(req, Environment.GetEnvironmentVariable("AzureTable"))
                     .ConfigureAwait(false);
 
