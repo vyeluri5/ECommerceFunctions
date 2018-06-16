@@ -14,9 +14,14 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 namespace ProductFunctions
 {
-    public static class ProductFunctions
+    public class ProductFunctions
     {
         public static IEcommFunctionFactory factoryInstance = new ECommFunctionFactory();
+
+        public int Test()
+        {
+            return 1;
+        }
 
         [FunctionName("GetProduct")]
         public static async Task<HttpResponseMessage> GetProduct([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "api/product/{category}/{id}")]HttpRequestMessage req, string category, string id, TraceWriter log)
